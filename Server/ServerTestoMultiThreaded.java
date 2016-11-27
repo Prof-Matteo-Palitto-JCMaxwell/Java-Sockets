@@ -3,7 +3,6 @@
  * e li gestisce in modo contemporaneo generando un socket "worker" per ogni connessione.
  * 
  */
-package servertesto.multithreaded;
 
 /**
  *
