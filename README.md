@@ -1,13 +1,15 @@
 # Java-Sockets
 Concetti e realizzazione di una semplice connessione Client/Server usando Sockets in Java
-
-## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-Java SDK
 ```
-Give examples
+Obitettivo del progetto: inviare linee di testo da un programma (Client)  ad un altro (Server) anche eventualmente remoto.
+```
+## Istruzioni
+Per replicare il progetto sul vostro computer personale. Gli allievi potranno quindi apportare modifiche ed eventualmente fonderle con il progetto principale, o in alcuni casi creare un progetto propio.
+
+### Prerequisiti
+Java SDK (Software Development Kit) - programma per la compilazione (javac) da codice in Java a ByteCode. L'installazione comprende anche Java JRE (Java Runtime Envirorment) che fornisce la Virtual Machine (VM) su cui far eseguire il ByteCode.
+```
+E suggerito anche l'utilizzo di netBeans IDE (Integrated Development Envirorment)
 ```
 
 ### Installing
@@ -28,56 +30,48 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+## Uso
+Dal terminale del Server:
 ```
-Give an example
+java ServerTestoMultiThreaded <port>
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
+Da un terminale Client:
 ```
-Give an example
+java client-Testo <host> <port>
+dove:
+* host puo' essere espresso sia in forma numerica (es. 127.0.0.1) che in forma alfanumerica (es. www.nomeSito.com)
 ```
+NOTA: posso collegarmi al server con quanti Clients desidero, sia su stesso computer che da terminali su computer diversi.
 
-## Deployment
+### Esempio usando stesso computer sia per eseguire Server che multipli Clients
+Da finestra di comando esguire il Server:
+```
+cd Documents\NetBeansProjects\Java-Sockets\Server
+java ServerTestoMultiThreaded 1234
+```
+Da nuova finestra di comando esguire il ```primo``` Client
+```
+cd Documents\NetBeansProjects\Java-Sockets\Server
+java client-Testo localhost 1234
+```
+Da nuova finestra di comando esguire il ```secondo``` Client
+```
+cd Documents\NetBeansProjects\Java-Sockets\Server
+java client-Testo localhost 1234
+```
+## Diventa un collaboratore
+Questa e' la lista di nuove funzioni da aggiungere al progetto:
+1. Di seguito alla nuova connessione di un Client con il Server, viene richiesto il "NickName" che viene poi di seguito usato per la visualizzazione del messaggio (invece della porta del Client come da progetto iniziale)
+2. Possibilita' di mandare un comando (es. ListaUtenti) al Server che di conseguenza restituisca la lista di tutti i Clients connessi.
+3. Group Chat 
+3.1. Possibilita' di iniziare una o piu' "group chat" fornendo per ogni chat il "Soggetto della discussione"
+3.2. Possibilita' di invitare uno o piu' utenti conessi a entrare nella "goup chat"
+3.3. Possibilita' di uscire dalla "group chat"
 
-Add additional notes about how to deploy this on a live system
+Mentre le modifiche descritte dai primi due punti risulteranno in una fusione (merge), le modifiche descritti dai punti 3 dovranno far parte di un nuovo progetto che parte da quello originario (fork).
+ 
+## Licenza
+opensource nel modo piu' completo del termine :) senza alcuna restrizione!
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+## Ringraziamenti
+a mia moglie che mi ha permesso di trovare il tempo per questo progetto guardando il bambino ;)
