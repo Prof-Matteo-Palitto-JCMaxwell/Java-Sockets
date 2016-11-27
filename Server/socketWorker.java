@@ -3,7 +3,6 @@
  * Elabora il testo ricevuto che in questo caso viene semplicemente mandato indietro con l'aggiunta 
  * di una indicazione che e' il testo che viene dal Server.
  */
-package servertesto.multithreaded;
 import java.net.*;
 import java.io.*;
 
