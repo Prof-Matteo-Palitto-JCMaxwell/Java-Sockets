@@ -1,8 +1,11 @@
+
 # Java-Sockets
 Concetti e realizzazione di una semplice connessione Client/Server usando Sockets in Java
 ```
-Obitettivo del progetto: inviare linee di testo da un programma (Client)  ad un altro (Server) anche eventualmente remoto.
+Obitettivo del progetto: inviare linee di testo da un programma (Client)... -->
+                         --> ad un altro (Server) anche eventualmente remoto.
 ```
+**Nota:** Visiona le [Slides della lezione](https://docs.google.com/presentation/d/19vhath-GbtUO7ofpukJE4Opi16aTfrnurJ2lUizB0iE/edit?usp=sharing)
 ## Istruzioni
 Per replicare il progetto sul vostro computer personale. Gli allievi potranno quindi apportare modifiche ed eventualmente fonderle con il progetto principale, o in alcuni casi creare un progetto propio.
 
@@ -15,6 +18,7 @@ E' suggerito anche l'utilizzo di netBeans IDE (Integrated Development Envirormen
 ### Installazione
 Scarica i files del progetto cliccando "Clone/Download"
 * in NetBeans crea due nuovi progetti "Java-Sockets-Client" e "Java-Sockets-Server"
+
 * estrai i files e spostali nella sub-directory "src" dei rispettivi progetti (es. Documents\NetBeansProjects\Java-Sockets-Server\src)
 
 ## Uso
@@ -49,8 +53,15 @@ java client-Testo localhost 1234
 ## Diventa un collaboratore
 Questa e' la lista di nuove funzioni da aggiungere al progetto:
 ```
-1. Di seguito alla nuova connessione di un Client con il Server, viene richiesto il "NickName" che viene poi di seguito usato per la visualizzazione del messaggio (invece della porta del Client come da progetto iniziale)
-2. Possibilita' di mandare un comando (es. ListaUtenti) al Server che di conseguenza restituisca la lista di tutti i Clients connessi.
+1. Di seguito alla nuova connessione di un Client con il Server,
+   richiedere il "NickName" e utilizzarlo per la visualizzazione del messaggio 
+   (invece della porta del Client come da progetto iniziale)
+```
+```
+2. Aggiungere la possibilita' di mandare un comando (es. ListaUtenti) al Server 
+   che di conseguenza restituisca la lista di tutti i Clients connessi.
+```
+```
 3. Group Chat 
 3.1. Possibilita' di iniziare una o piu' "group chat" fornendo per ogni chat il "Soggetto della discussione"
 3.2. Possibilita' di invitare uno o piu' utenti conessi a entrare nella "goup chat"
