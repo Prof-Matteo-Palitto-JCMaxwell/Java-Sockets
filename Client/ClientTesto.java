@@ -7,7 +7,8 @@
 /**
  *
  * @author Prof. Matteo Palitto
- * @author Misael Miccichè 
+ * @author Misael Miccichè
+ * @author De Santis Veronica
  */
 import java.net.*;
 import java.io.*;
