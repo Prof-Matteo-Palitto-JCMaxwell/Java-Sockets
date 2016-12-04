@@ -12,11 +12,13 @@ import java.io.*;
  */
 class SocketWorker implements Runnable {
   private Socket client;
+  // VARIABILE PER CONTROLLARE IL PRIMO STREAM DI DATI
+  private boolean firstAccess = true;
+  private String nick = "";
 
     //Constructor: inizializza le variabili
     SocketWorker(Socket client) {
         this.client = client;
-        System.out.println("Connesso con: " + client);
     }
 
     // Questa e' la funzione che viene lanciata quando il nuovo "Thread" viene generato
@@ -32,16 +34,25 @@ class SocketWorker implements Runnable {
           System.out.println("Errore: in|out fallito");
           System.exit(-1);
         }
-
         String line = "";
-        int clientPort = client.getPort(); //il "nome" del mittente (client)
+        if(firstAccess)
+        {
+            try{
+                // LEGGO IL NICKNAME
+                line = in.readLine();
+                nick = line;
+                firstAccess = false;
+            } catch(IOException e) { System.out.println("Lettura da socket fallito");
+                                     System.exit(-1); }
+        }
+        System.out.println("Connesso con: " + nick);
         while(line != null){
           try{
             line = in.readLine();
             //Manda lo stesso messaggio appena ricevuto con in aggiunta il "nome" del client
-            out.println("Server-->" + clientPort + ">> " + line);
+            out.println("Server-->" + nick + ">> " + line);
             //scrivi messaggio ricevuto su terminale
-            System.out.println(clientPort + ">> " + line);
+            System.out.println(nick + ">> " + line);
            } catch (IOException e) {
             System.out.println("lettura da socket fallito");
             System.exit(-1);
@@ -49,9 +60,15 @@ class SocketWorker implements Runnable {
         }
         try {
             client.close();
-            System.out.println("connessione con client: " + client + " terminata!");
+            System.out.println("connessione con client: " + nick + " terminata!");
         } catch (IOException e) {
-            System.out.println("Errore connessione con client: " + client);
+            System.out.println("Errore connessione con client: " + nick);
         }
     }
+    // METODO CHE RITORNA IL NICKNAME
+    public String getNick()
+    {
+        return nick;
+    }
+  
 }
